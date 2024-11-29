@@ -1,0 +1,137 @@
+ body.dark-mode {
+        background-color: #121212;
+        color: #ffffff;
+    }
+
+    .sidebar-dark-primary {
+        background-color: #1e1e1e;
+        transition: background 0.5s; /* Transition for background */
+    }
+
+    .sidebar-dark-primary .nav-link {
+        color: #ffffff;
+    }
+
+    .sidebar-dark-primary .nav-link.active {
+        background-color: #00ff2a77; /* Customize active link color */
+    }
+
+    /* Custom dark mode styles for the sidebar */
+    .sidebar-dark-primary .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.096); /* Hover effect */
+    }
+
+    /* Background gradient for normal and dark modes */
+    .normal-mode .sidebar {
+        background: linear-gradient(to right, black, rgb(21, 48, 41), rgb(56, 114, 99));
+    }
+
+    .dark-mode .sidebar {
+        background: linear-gradient(to right, black, rgb(21, 21, 48), rgb(131, 131, 231));
+    }
+
+    /* Animation for icon */
+    #dark-mode-icon {
+        transition: transform 0.3s ease, opacity 0.3s ease; /* Transition for rotation and opacity */
+    }
+
+    .rotate {
+        transform: rotate(180deg); /* Rotate icon when switching to dark mode */
+    }
+
+    .fade-out {
+        opacity: 0; /* Fade out effect for the icon */
+    }
+
+    .fade-in {
+        opacity: 1; /* Fade in effect for the icon */
+    }
+
+    .bg{
+background: linear-gradient(to right, black, rgb(21, 48, 41), rgb(56, 114, 99));
+}
+.nav-treeview {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 15px;
+}
+
+.menu-open .nav-treeview {
+    max-height: 500px; /* Sesuaikan tinggi maksimal ini dengan tinggi isi menu */
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.nav-treeview .nav-item .nav-link {
+    padding-left: 15px; /* Menambahkan padding kiri agar item dalam submenu juga lebih masuk */
+}
+
+/* Warna default untuk submenu */
+.nav-sidebar .nav-item .nav-treeview .nav-link {
+    background-color: transparent; /* Default background transparan */
+    color: #ffffff; /* Warna teks putih */
+}
+
+/* Warna saat kursor diarahkan (hover) */
+.nav-sidebar .nav-item .nav-treeview .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.096); /* Putih transparan */
+    color: #ffffff; /* Teks putih */
+}
+
+/* Warna saat submenu aktif (diklik) */
+.nav-sidebar .nav-item .nav-treeview .nav-link.active,
+.nav-sidebar .nav-item .nav-treeview .nav-link.active:hover {
+    background-color: #00ff2a77; /* Warna biru */
+    color: #ffffff; /* Teks putih */}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Sesuaikan agar wrapper mencakup seluruh tinggi viewport */
+}
+
+.main-sidebar {
+  height: 100vh; /* Pastikan sidebar mencakup seluruh tinggi halaman */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #343a40;
+}
+
+.content-wrapper {
+  flex-grow: 1;
+  margin-left: 250px; /* Sesuaikan dengan lebar sidebar */
+}
+
+.main-footer {
+  margin-left: 250px; /* Sesuaikan dengan lebar sidebar */
+  position: relative;
+}
+.user-panel {
+  display: flex;
+  justify-content: space-between; /* Menggeser item ke kanan dan kiri */
+  align-items: center;
+}
+
+.user-panel .info {
+  margin-right: auto; /* Pastikan nama pengguna tetap di kiri */
+}
+
+.user-panel .icont i {
+  font-size: 25px; /* Memperbesar ukuran ikon */
+  color: #ffffff83; /* Pastikan warna ikon sesuai */
+  transition: transform 0.3s ease; /* Efek transisi pada hover */
+}
+
+.user-panel .icont:hover i {
+    color: white;
+  transform: scale(1.1); /* Ikon akan membesar saat di-hover */
+}
