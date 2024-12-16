@@ -18,7 +18,7 @@ if ($jumlahuser === 1) {
     $_SESSION['nama'] = $datauser['nama'];
     $_SESSION['status'] = $datauser['status'];
     $_SESSION['id'] = $datauser['id'];
-    $_SESSION['status_login'] = true;
+    $_SESSION['status_login1'] = true;
     $_SESSION['waktu'] = time();
 
     // Redirect ke halaman user
@@ -37,7 +37,7 @@ if ($jumlahpengelola === 1) {
     $_SESSION['nama'] = $datapengelola['nama'];
     $_SESSION['status'] = $datapengelola['status'];
     $_SESSION['id'] = $datapengelola['id'];
-    $_SESSION['status_login'] = true;
+    $_SESSION['status_login2'] = true;
     $_SESSION['waktu'] = time();
 
     // Redirect ke halaman pengelola

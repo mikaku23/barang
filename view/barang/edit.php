@@ -35,20 +35,15 @@
               <div class="form-group">
                     <label for="status">Kondisi Barang</label>
                     <select class="form-control" id="status" name="status"  >
-                        <option disabled selected><?= $data['status'] ?></option>
-                        <option >Ada</option>
+                        <option  value="<?= $data['status'] ?>"><?= $data['status'] ?></option>
+                        <option >Baik</option>
                         <option >Rusak</option>
                         
                     </select>
                 </div>
               <div class="form-group">
                     <label for="spesifik_lain">Spesifik Lain</label>
-                    <select class="form-control" id="spesifik_lain" name="spesifik_lain" onchange="toggleInputField(this)" >
-                        <option value="" disabled selected><?= $data['spesifik_lain'] ?></option>
-                        <option value="spesifikasi 1">Tidak Ada</option>
-                        <option value="lain" >lainnya</option>
-                    </select>
-                   <input type="text" id="spesifik_lain_field" class="form-control" name="spesifik_lain" placeholder="Masukkan spesifik lain" style="display:none;">
+                    <input type="text" class="form-control" id="spesifik_lain" name="spesifik_lain" value="<?= $data['spesifik_lain'] ?>">
                 </div>
           </div>
           <!-- /.card-body -->

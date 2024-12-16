@@ -44,7 +44,7 @@ if ($proses == 'kembali') {
     $updateStatusQuery = "UPDATE peminjaman2 SET status = 'dikembalikan' WHERE idpinjam = '$idp'";
     mysqli_query($koneksi, $updateStatusQuery);
 
-        $query="UPDATE barang SET status='ada' WHERE idbarang='$idbarang'";
+        $query="UPDATE barang SET status='baik' WHERE idbarang='$idbarang'";
     $update=mysqli_query($koneksi,$query);
 
     // Ambil data barang yang dipinjam untuk diperbarui
@@ -75,7 +75,7 @@ elseif($proses=='hapuskembali'){
     $query="DELETE FROM pengembalian WHERE idkembali='$idkembali'";
     mysqli_query($koneksi,$query);
 
-        $query="UPDATE barang SET status='ada' WHERE idbarang='$idbarang'";
+        $query="UPDATE barang SET status='dipinjam' WHERE idbarang='$idbarang'";
     $update=mysqli_query($koneksi,$query);
 
     header("location:../index.php?page=pengembalian&title=pengembalian");

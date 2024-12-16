@@ -39,6 +39,10 @@
                   <input type="text" class="form-control" id="warna" name="warna" disabled value="<?=$data['warna'] ?>">
               </div>
               <div class="form-group">
+                  <label for="status">Kondisi Barang</label>
+                  <input type="text" class="form-control" id="status" name="status" disabled value="<?=$data['status'] ?>">
+              </div>
+              <div class="form-group">
                   <label for="spesifik_lain">Spesifikasi Lain</label>
                   <input type="text" class="form-control" id="spesifik_lain" name="spesifik_lain" disabled value="<?=$data['spesifik_lain'] ?>">
               </div>

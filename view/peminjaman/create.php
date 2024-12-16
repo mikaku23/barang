@@ -41,11 +41,11 @@
                 <div class="form-group">
                     <label for="idbarang">Nama Barang</label>
                     <select class="form-control" id="idbarang" name="idbarang" required>
-                        <option value="">Pilih Barang</option>
+                        <option value="" disabled selected>Pilih Barang</option>
                         <?php
                         include "koneksi.php";
                         // Query untuk mengambil id dan nama barang
-                        $query = mysqli_query($koneksi, "SELECT idbarang, nama FROM barang where status= 'ada'");
+                        $query = mysqli_query($koneksi, "SELECT idbarang, nama FROM barang where status= 'baik'");
                         while ($data = mysqli_fetch_assoc($query)) {
                             // Gabungkan id dan nama dalam satu value
                             echo "<option value='" . $data['idbarang'] . "-" . $data['nama'] . "'>" . $data['idbarang'] . "-" . $data['nama'] . "</option>";

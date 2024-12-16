@@ -35,6 +35,10 @@ if($proses == "create"){
 
     $updateBarangQuery = "UPDATE barang SET jumlah = jumlah - $jumlah WHERE idbarang = '$idbarang'";
     mysqli_query($koneksi, $updateBarangQuery);
+
+        $query="UPDATE barang SET status='dipinjam'
+    WHERE idbarang='$idbarang'";
+    $update=mysqli_query($koneksi,$query);
 }
 elseif ($proses == "edit") {
     $id=$_POST['id'];
@@ -62,6 +66,9 @@ elseif ($proses == 'hapus') {
         $jumlahDipinjam = $dataPeminjaman['jumlah'];
 
         // Tambahkan kembali jumlah barang di tabel barang
+            $query="UPDATE barang SET status='baik' WHERE idbarang='$idbarang'";
+    $update=mysqli_query($koneksi,$query);
+    
         $updateBarangQuery = "UPDATE barang SET jumlah = jumlah + $jumlahDipinjam WHERE idbarang = '$idbarang'";
         mysqli_query($koneksi, $updateBarangQuery);
     }
@@ -69,6 +76,7 @@ elseif ($proses == 'hapus') {
     // Hapus data peminjaman
     $query = "DELETE FROM peminjaman2 WHERE idpinjam = '$id'";
     mysqli_query($koneksi, $query);}
+
 
 header("location:../web2.php?page=peminjaman&title=peminjaman");
 

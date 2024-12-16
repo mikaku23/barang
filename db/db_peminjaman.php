@@ -66,6 +66,9 @@ elseif ($proses == 'hapus') {
         $jumlahDipinjam = $dataPeminjaman['jumlah'];
 
         // Tambahkan kembali jumlah barang di tabel barang
+            $query="UPDATE barang SET status='baik' WHERE idbarang='$idbarang'";
+    $update=mysqli_query($koneksi,$query);
+    
         $updateBarangQuery = "UPDATE barang SET jumlah = jumlah + $jumlahDipinjam WHERE idbarang = '$idbarang'";
         mysqli_query($koneksi, $updateBarangQuery);
     }

@@ -13,9 +13,12 @@ if($aksi=="insert"){
     $nama=$_POST['nama'];
     $jumlah=$_POST['jumlah'];
     $warna=$_POST['warna'];
+    $nomorbarang=$_POST['nomorbarang'];
     $spesifik_lain=$_POST['spesifik_lain'];
+    $idkategori=$_POST['idkategori'];
+    $namakategori=$_POST['idkategori'];
 
-    $query="INSERT INTO barang SET idbarang='$id',nama='$nama',jumlah='$jumlah',warna='$warna',status = 'ada ' ,spesifik_lain='$spesifik_lain'";
+    $query="INSERT INTO barang SET idbarang='$id',nomorbarang='$nomorbarang', nama='$nama',jumlah='$jumlah',warna='$warna',status = 'baik ' ,spesifik_lain='$spesifik_lain',idkategori='$idkategori',namakategori='$namakategori'";
     $insert=mysqli_query($koneksi,$query);
 
 }elseif($aksi=="edit"){
@@ -42,10 +45,26 @@ if($aksi=="insert"){
 
 
 }
-elseif($aksi=='rusak'){
+elseif($aksi=='rusakringan'){
     $id=$_GET['idbarang'];
 
-    $query="UPDATE barang SET status='rusak'
+    $query="UPDATE barang SET status='rusak ringan'
+    WHERE idbarang='$id'";
+
+    $update=mysqli_query($koneksi,$query);
+}
+elseif($aksi=='rusakberat'){
+    $id=$_GET['idbarang'];
+
+    $query="UPDATE barang SET status='rusak berat'
+    WHERE idbarang='$id'";
+
+    $update=mysqli_query($koneksi,$query);
+}
+elseif($aksi=='perbaiki'){
+    $id=$_GET['idbarang'];
+
+    $query="UPDATE barang SET status='baik'
     WHERE idbarang='$id'";
 
     $update=mysqli_query($koneksi,$query);
@@ -54,4 +73,3 @@ elseif($aksi=='rusak'){
 }
 
 header("location:../index.php?title=barang&page=barang");
-

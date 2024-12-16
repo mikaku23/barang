@@ -19,6 +19,7 @@ if ($proses == 'kembali') {
     $idp = $_POST['ID'];
     $nama = $_POST['NM'];
     $barang = $_POST['NB'];
+    $idbarang = $_POST['NB'];
     $tanggal = $_POST['TP'];
     $jumlah = (int)$_POST['J']; // Pastikan ini angka
     $tanggal_kembali = date("Y-m-d");
@@ -43,6 +44,9 @@ if ($proses == 'kembali') {
     $updateStatusQuery = "UPDATE peminjaman2 SET status = 'dikembalikan' WHERE idpinjam = '$idp'";
     mysqli_query($koneksi, $updateStatusQuery);
 
+        $query="UPDATE barang SET status='baik' WHERE idbarang='$idbarang'";
+    $update=mysqli_query($koneksi,$query);
+
     // Ambil data barang yang dipinjam untuk diperbarui
     $queryPeminjaman = "SELECT idbarang, jumlah FROM peminjaman2 WHERE idpinjam = '$idp'";
     $result = mysqli_query($koneksi, $queryPeminjaman);
@@ -56,12 +60,13 @@ if ($proses == 'kembali') {
         $updateBarangQuery = "UPDATE barang SET jumlah = jumlah + $jumlahDipinjam WHERE idbarang = '$idbarang'";
         mysqli_query($koneksi, $updateBarangQuery);
     }
+    
+  header("location:../web2.php?page=peminjamann&title=peminjamann");
 }
 
 elseif($proses=='hapuskembali'){
         $idp = $_POST['ID'];
     $idkembali=$_GET['idkembali'];
-    $idkembali2=$_SESSION['$idkembali'];
 
 
     $updateStatusQuery = "UPDATE peminjaman2 SET status = 'dipinjam' WHERE idpinjam = '$idkembali'";
@@ -71,10 +76,13 @@ elseif($proses=='hapuskembali'){
     $query="DELETE FROM pengembalian WHERE idkembali='$idkembali'";
     mysqli_query($koneksi,$query);
 
+        $query="UPDATE barang SET status='dipinjam' WHERE idbarang='$idbarang'";
+    $update=mysqli_query($koneksi,$query);
+
+header("location:../web2.php?page=peminjaman&title=peminjaman");
 
 
 }
         
-header("location:../web2.php?page=peminjaman&title=peminjaman");
 
 ?>

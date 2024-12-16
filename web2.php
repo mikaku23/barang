@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!$_SESSION['status_login']){
+if(!$_SESSION['status_login1']){
     header("location:view/login.php");
 }
 ?>
